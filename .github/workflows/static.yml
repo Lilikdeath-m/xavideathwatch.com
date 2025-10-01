@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18+ Video Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header, section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>18+ Video Upload</h1>
+        <p>Only users aged 18+ can upload and view content.</p>
+    </header>
+
+    <section>
+        <h2>Confirm Age</h2>
+        <button id="verifyAgeBtn">I am 18 or older</button>
+    </section>
+
+    <section id="uploadSection" style="display: none;">
+        <h2>Upload Your Video</h2>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="videoFile">Choose video to upload:</label><br><br>
+            <input type="file" name="videoFile" id="videoFile" accept="video/*" required><br><br>
+            <button type="submit">Upload Video</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('verifyAgeBtn').addEventListener('click', function() {
+            const age = prompt("Enter your age:");
+            if (age >= 18) {
+                document.getElementById('uploadSection').style.display = 'block';
+            } else {
+                alert("You must be 18+ to use this site.");
+            }
+        });
+    </script>
+</body>
+</html>
